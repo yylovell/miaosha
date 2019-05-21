@@ -11,7 +11,7 @@ import com.imooc.miaosha.domain.User;
 public interface UserDao {
 	
 	@Select("select * from user where id = #{id}")
-	public User getById(@Param("id")int id	);
+	public User getById(@Param("id") int id);
 
 	@Insert("insert into user(id, name)values(#{id}, #{name})")
 	public int insert(User user);
