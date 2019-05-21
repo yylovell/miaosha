@@ -37,7 +37,7 @@ public class MQReceiver {
 			MiaoshaMessage mm  = RedisService.stringToBean(message, MiaoshaMessage.class);
 			MiaoshaUser user = mm.getUser();
 			long goodsId = mm.getGoodsId();
-
+			
 			GoodsVo goods = goodsService.getGoodsVoByGoodsId(goodsId);
 	    	int stock = goods.getStockCount();
 	    	if(stock <= 0) {
@@ -53,7 +53,7 @@ public class MQReceiver {
 		}
 	
 //		@RabbitListener(queues=MQConfig.QUEUE)
-//		public void receiveMsg(String message) {
+//		public void receive(String message) {
 //			log.info("receive message:"+message);
 //		}
 //		

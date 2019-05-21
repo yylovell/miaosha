@@ -14,7 +14,7 @@ import com.imooc.miaosha.domain.OrderInfo;
 public interface OrderDao {
 	
 	@Select("select * from miaosha_order where user_id=#{userId} and goods_id=#{goodsId}")
-	public MiaoshaOrder getMiaoshaOrderByUserIdGoodsId(@Param("userId")long userId, @Param("goodsId")long goodsId);
+	public MiaoshaOrder getMiaoshaOrderByUserIdGoodsId(@Param("userId") long userId, @Param("goodsId") long goodsId);
 
 	@Insert("insert into order_info(user_id, goods_id, goods_name, goods_count, goods_price, order_channel, status, create_date)values("
 			+ "#{userId}, #{goodsId}, #{goodsName}, #{goodsCount}, #{goodsPrice}, #{orderChannel},#{status},#{createDate} )")
@@ -25,7 +25,7 @@ public interface OrderDao {
 	public int insertMiaoshaOrder(MiaoshaOrder miaoshaOrder);
 
 	@Select("select * from order_info where id = #{orderId}")
-	public OrderInfo getOrderById(@Param("orderId")long orderId);
+	public OrderInfo getOrderById(@Param("orderId") long orderId);
 
 	@Delete("delete from order_info")
 	public void deleteOrders();
